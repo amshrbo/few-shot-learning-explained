@@ -1,4 +1,4 @@
-# few-shot-learning-explained
+# Meta Learning (few-shot-learning) explained
 > An Introduction and exploration of Meta learning architucture specifically **few-shot-learning**.
 
 ## Resources
