@@ -5,7 +5,7 @@
 ## Tables of contents
 1. [Motivation for Meta learning](#motivation-for-meta-learning)
 1. [General idea about few-shot-learning](#few-shot-learnig)
-1. [Defining common terms for few-shot-learning](./)
+1. [Defining common terms for few-shot-learning](#defining-common-terms-in-few-shot-learnig)
 1. [Diffenrent techniques for training the **similarity function**](./)
 1. [Contacts](#contacts)
 1. [Rsources](#resources)
@@ -31,12 +31,17 @@
 - ***In other simple words:*** 
 > - The goal is to learn how to measure the similarity and differences between **2 classes**, here we accomplish the **learn to learn**.
 > - That's how we can recognize unseen ***categories*** in the training set.
-> - (e.g) Training into (Dogs, Cats, and Tigers) classes and then use the same model to recognize a new class like Elephant.
+> - (e.g) Training into (Dogs, Cats, and Tigers) classes and then use the same model to recognize a new class like Elephant by providing it with additional information a support set (few shot).
 > - We will get to the technical details of how the model can do this later.
 
+## Defining common terms in few shot learnig
++ **What is a support set ?**
+  - After training the similarity function of our model we want to classify new image **(Query img)**, this image as we know from above doesn't belong to any of our classes so the support set will contain a set of images and at least one of them belong to the same class as the query img, so the model could compute a similarity_score for every img in the support set and pick the highest score as the class of the new img.
+    > (e.g) our model has three classes (Cats, dogs, and tigers) and we want to query it using an image of elephant, so we'll need to provide a support set as our  additional info for the model (hence the name few shot, the small dataset) them the model will compare the query img with every single image and will provide similarity score, and we will choose the highest sim_score as our result.
 
-
-
++ What is this mean **K-way, n-shot, support set (4way-3shots support set)**
+  - **k-way:** are the number of classes in the support set, 4way means we have four classes (cat, dog, pegion, elephant).
+  - **N-shot:** are the number of samples per class, 3shots means we have a 3 imgs per class in the support set.
 
 ## Contacts
 > You can reach out for me in twitter @amshrbo[twitter.com/amshrbo] or via mail `amshrbo@gmail.com`
