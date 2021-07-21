@@ -37,7 +37,9 @@
 ## Defining common terms in few shot learnig
 + **What is a support set ?**
   - After training the similarity function of our model we want to classify new image **(Query img)**, this image as we know from above doesn't belong to any of our classes so the support set will contain a set of images and at least one of them belong to the same class as the query img, so the model could compute a similarity_score for every img in the support set and pick the highest score as the class of the new img.
-    > (e.g) our model has three classes (Cats, dogs, and tigers) and we want to query it using an image of elephant, so we'll need to provide a support set as our  additional info for the model (hence the name few shot, the small dataset) them the model will compare the query img with every single image and will provide similarity score, and we will choose the highest sim_score as our result.
+    > (e.g) our model has three classes (Cats, dogs, and tigers) and we want to query it using an image of elephant, so we'll need to provide a support set as our  additional info for the model (hence the name few shot, the small dataset) them the model will compare the query img with every single image and will provide similarity score, and we will choose the highest sim_score as our result the below image shows an example of what i did explain.
+
+![query and sim image](./assets/query_and_sim.png)
 
 + What is this mean **K-way, n-shot, support set (4way-3shots support set)**
   - **k-way:** are the number of classes in the support set, 4way means we have four classes (cat, dog, pegion, elephant).
