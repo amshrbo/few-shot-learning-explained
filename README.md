@@ -1,12 +1,13 @@
 # Meta Learning (few-shot-learning) explained
-> An Introduction and exploration of Meta learning architucture specifically **few-shot-learning**.
+> - An Introduction and exploration of Meta learning architucture specifically **few-shot-learning**. 
+> - Our goal is to be able to classify new objects never seen it in the training data with very few examples.
 
 ## Tables of contents
 1. [Motivation for Meta learning](#motivation-for-meta-learning)
-1. [General idea about few-shot-learning](./)
+1. [General idea about few-shot-learning](#few-shot-learnig)
 1. [Defining common terms for few-shot-learning](./)
 1. [Diffenrent techniques for training the **similarity function**](./)
-1. [Contacts](./)
+1. [Contacts](#contacts)
 1. [Rsources](#resources)
 1. [License](#license)
 
@@ -20,6 +21,20 @@
   - The appearance of the categories we know and, more importantly, the variability in their appearance, gives us important information on what to expect in a new category. This may allow us to learn new categories from few(er) training examples.
 - And here we will try to explain how we can **some how** give the copmuter the ability to mimic what Humans do.
 
+## Few shot learnig
+***Defination:*** Few-shot learning is the problem of making predictions based on a limited number of samples. 
+- Few-shot learning is different from standard supervised learning.
+  - **The goal of Here** is not to let the model recognize the images in the training set and then generalize to the test set. 
+  - Instead, the goal is to learn. **Learn to learn**
+- In supervised learnig the goal is to build a model around class recognition.
+- So the goal isn't to recognize the cat or dog the goal is to know what is the diffrences between them
+- ***In other simple words:*** 
+> - The goal is to learn how to measure the similarity and differences between **2 classes**, here we accomplish the **learn to learn**.
+> - That's how we can recognize unseen ***categories*** in the training set.
+> - (e.g) Training into (Dogs, Cats, and Tigers) classes and then use the same model to recognize a new class like Elephant.
+> - We will get to the technical details of how the model can do this later.
+
+
 
 
 
@@ -30,6 +45,7 @@
 - You can Watch **Shusen Wang** videos on [YouTube](https://www.youtube.com/playlist?list=PLgtf4d9zHHO8YjSSkkBT55XN8xsIvb-ku).
   - You can find the slides associated with videos [here](https://github.com/wangshusen/DeepLearning) Just go to this repos and search for Meta Learning.
 - [One-Shot Learning of Object Categories](https://www.computer.org/csdl/journal/tp/2006/04/i0594/13rRUxC0SXe) Lei Fei-Fei, Fergus, Perona, IEE, 2006
+- [Few shot learnig article from Analytics vedhya](https://www.analyticsvidhya.com/blog/2021/05/an-introduction-to-few-shot-learning/)
 
 ## License
 [GPL-3.0 License](./LICENSE)
