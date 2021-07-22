@@ -6,6 +6,7 @@
 1. [Motivation for Meta learning](#motivation-for-meta-learning)
 1. [General idea about few-shot-learning](#few-shot-learnig)
 1. [Defining common terms for few-shot-learning](#defining-common-terms-in-few-shot-learnig)
+1. [How the model learn ??](#how-the-model-learn)
 1. [Diffenrent techniques for training the **similarity function**](./)
 1. [Contacts](#contacts)
 1. [Rsources](#resources)
@@ -21,6 +22,8 @@
   - The appearance of the categories we know and, more importantly, the variability in their appearance, gives us important information on what to expect in a new category. This may allow us to learn new categories from few(er) training examples.
 - And here we will try to explain how we can **some how** give the copmuter the ability to mimic what Humans do.
 
+---
+
 ## Few shot learnig
 ***Defination:*** Few-shot learning is the problem of making predictions based on a limited number of samples. 
 - Few-shot learning is different from standard supervised learning.
@@ -33,17 +36,22 @@
 > - That's how we can recognize unseen ***categories*** in the training set.
 > - (e.g) Training into (Dogs, Cats, and Tigers) classes and then use the same model to recognize a new class like Elephant by providing it with additional information a support set (few shot).
 > - We will get to the technical details of how the model can do this later.
+> <img src="./assets/query_and_sim.png" width="600" height="350">
+
+---
 
 ## Defining common terms in few shot learnig
 + **What is a support set ?**
   - After training the similarity function of our model we want to classify new image **(Query img)**, this image as we know from above doesn't belong to any of our classes so the support set will contain a set of images and at least one of them belong to the same class as the query img, so the model could compute a similarity_score for every img in the support set and pick the highest score as the class of the new img.
     > (e.g) our model has three classes (Cats, dogs, and tigers) and we want to query it using an image of elephant, so we'll need to provide a support set as our  additional info for the model (hence the name few shot, the small dataset) them the model will compare the query img with every single image and will provide similarity score, and we will choose the highest sim_score as our result the below image shows an example of what i did explain.
 
-![query and sim image](./assets/query_and_sim.png)
-
 + What is this mean **K-way, n-shot, support set (4way-3shots support set)**
   - **k-way:** are the number of classes in the support set, 4way means we have four classes (cat, dog, pegion, elephant).
   - **N-shot:** are the number of samples per class, 3shots means we have a 3 imgs per class in the support set.
+
+---
+
+
 
 ## Contacts
 > You can reach out for me in twitter @amshrbo[twitter.com/amshrbo] or via mail `amshrbo@gmail.com`
@@ -53,6 +61,8 @@
   - You can find the slides associated with videos [here](https://github.com/wangshusen/DeepLearning) Just go to this repos and search for Meta Learning.
 - [One-Shot Learning of Object Categories](https://www.computer.org/csdl/journal/tp/2006/04/i0594/13rRUxC0SXe) Lei Fei-Fei, Fergus, Perona, IEE, 2006
 - [Few shot learnig article from Analytics vedhya](https://www.analyticsvidhya.com/blog/2021/05/an-introduction-to-few-shot-learning/)
+- [Siamese neural network in wikipedia](https://en.wikipedia.org/wiki/Siamese_neural_network)
+- [Siamese Neural Networks for One-Shot Image Recognition](http://www.cs.toronto.edu/~gkoch/files/msc-thesis.pdf)
 
 ## License
 [GPL-3.0 License](./LICENSE)
