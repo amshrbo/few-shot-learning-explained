@@ -50,8 +50,25 @@
   - **N-shot:** are the number of samples per class, 3shots means we have a 3 imgs per class in the support set.
 
 ---
+## How the model learn
+> We'll be using the simase learning network to train our model, and there is two methods we can use to train the model.
 
+### 1. Using pairwise similarity score
+- ***The below mind map explaing the learning process.***
+<img src="./assets/simaseNet_simscores.png" height="421" width="750">
 
+- ***The algorithm explaination***
+  1. Preprocessing step:
+      - We divide the images into a set of pairs to feed them to the network e.g `(img_1, image_2, 1)` this means we have two images **(positive pair)** belong to the same class assigned label 1 for them, `(image_a, image_b, 0)` those two images are **(negative pair)** and we assigned 0 to them.
+
+  1. Then feeding the set of pairs to ***The same ConveNet*** for extracting our feature vector
+  1. Then we get the ***absolute diff*** between the two feature vectors 
+  1. Feeding the result to dense layers getting a scaler
+  1. The scaler goes into a ***sigmoide*** getting a value between 0 and 1
+  1. this value represnets the prediction of similarity between the two images
+  1. Calculating our **loss** and gradient
+  1. Then back-propagate the results to update the params of the ***dense layers and the ConvNet***
+  1. Repeat Until we converge.
 
 ## Contacts
 > You can reach out for me in twitter @amshrbo[twitter.com/amshrbo] or via mail `amshrbo@gmail.com`
