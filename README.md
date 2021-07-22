@@ -51,10 +51,11 @@
 
 ---
 ## How the model learn
-> We'll be using the simase learning network to train our model, and there is two methods we can use to train the model.
+> - We'll be using the Siamase learning network to train our model, and there is two methods we can use to train the model.
+> - You can read more about Siamase network by refering to the [Rsources](#resources) section.
 
 ### 1. Using pairwise similarity score
-- ***The below mind map explaing the learning process.***
+- ***The below mind map explains the learning process.***
 <img src="./assets/simaseNet_simscores.png" height="421" width="750">
 
 - ***The algorithm explaination***
@@ -71,7 +72,7 @@
   1. Repeat Until we converge.
 
 ## Contacts
-> You can reach out for me in twitter @amshrbo[twitter.com/amshrbo] or via mail `amshrbo@gmail.com`
+> You can reach out for me in twitter [@amshrbo](twitter.com/amshrbo) or via mail `amshrbo@gmail.com`
 
 ## Resources
 - You can Watch **Shusen Wang** videos on [YouTube](https://www.youtube.com/playlist?list=PLgtf4d9zHHO8YjSSkkBT55XN8xsIvb-ku).
