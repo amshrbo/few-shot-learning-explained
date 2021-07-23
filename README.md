@@ -7,7 +7,6 @@
 1. [General idea about few-shot-learning](#few-shot-learnig)
 1. [Defining common terms for few-shot-learning](#defining-common-terms-in-few-shot-learnig)
 1. [How the model learn ??](#how-the-model-learn)
-1. [Diffenrent techniques for training the **similarity function**](./)
 1. [Contacts](#contacts)
 1. [Rsources](#resources)
 1. [License](#license)
@@ -70,6 +69,36 @@
   1. Calculating our **loss** and gradient
   1. Then back-propagate the results to update the params of the ***dense layers and the ConvNet***
   1. Repeat Until we converge.
+- ***In predictions***
+    - Using the support set and the query image I can compare the query image with every image in the support set
+    - Getting a value between 0 and 1
+    - Then the maximum value is our predicted class
+    > note that it may be all the images in the support set don't belong to any of the classes that we trained the model on.
+
+### 2. Using the triplet loss method
+- **Preprocessing step:**
+    - We divide the images into a set of three pairs to feed them to the network e.g `(anchor_img, positive_img, negative_img)`
+    - `Anchor_img` a randomly selected img that can belong to any of our classes 
+    - `Positive_img` a randomly selected img that must have the same class as anchor
+    - `Negative_img` a randomly selected img that belongs to any class ***Excluding*** the anchor class
+- **Algorithm Explanation:**
+- Here's a graph that gives a quick idea:
+  > <img src="./assets/Triplet_loss.png" height="421" width="750">
+
+- We'll be using the same idea as in **pairwise** For feature extraction, but here for three images to get a feature vector for every image
+- Then, will calculate the D+ as the squared absolute difference between the `anchor feature vector and the positive feature vector`, and `D- as the squared absolute difference between the anchor feature vector and the negative feature vector`
+- We need `D+` to be as small as possible and `D-` to be as large as possible
+- Then we feed those results to our loss function
+- ***Triplet Loss Function:***
+    - As we can extract from the above we need D+ to be smaller than D- `D+ < D-`
+    - So we will try to make our whole NN to work in this, starting by the loss function
+    - But by how much we need this difference -> `Alpha` our most important hyper-parameter here Such that 
+    - <img src="./assets/triplet_loss_Equation.jpg">
+    - If the above equation is true so the loss will **be zero.**      
+    - **If not:**  <img src="./assets/tirplet_loss_ifnot.jpg">
+    - So our final Loss_function will be <img src="./assets/final_tripletLoss.jpg">
+- Then we will use gradient descent to and back-propagate the results to update our parameters.
+
 
 ## Contacts
 > You can reach out for me in twitter [@amshrbo](twitter.com/amshrbo) or via mail `amshrbo@gmail.com`
@@ -81,6 +110,8 @@
 - [Few shot learnig article from Analytics vedhya](https://www.analyticsvidhya.com/blog/2021/05/an-introduction-to-few-shot-learning/)
 - [Siamese neural network in wikipedia](https://en.wikipedia.org/wiki/Siamese_neural_network)
 - [Siamese Neural Networks for One-Shot Image Recognition](http://www.cs.toronto.edu/~gkoch/files/msc-thesis.pdf)
+- [FaceNet: A Unified Embedding for Face Recognition and Clustering](https://www.cv-foundation.org/openaccess/content_cvpr_2015/html/Schroff_FaceNet_A_Unified_2015_CVPR_paper.html)
+- [online-latex-equation-editor for generating image equations](http://www.sciweavers.org/free-online-latex-equation-editor)
 
 ## License
 [GPL-3.0 License](./LICENSE)
