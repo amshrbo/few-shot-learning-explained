@@ -97,8 +97,16 @@
     - If the above equation is true so the loss will **be zero.**      
     - **If not:**  <img src="./assets/tirplet_loss_ifnot.jpg">
     - So our final Loss_function will be <img src="./assets/final_tripletLoss.jpg">
+    - The feature space of the triplet loss will look like the below Image <img src="./assets/feature_space_of_triplet_loss.png" height="421" width="750">
 - Then we will use gradient descent and back-propagate the results to update our parameters.
 
+### 3. Summary of how the model learn
+1. First we train our siamase network on a large data set.
+1. Dividing the data into a two or three paris based on the method we choose for learning
+1. In predictions we give the model a Query_Img and a support_set (k-way n-shot)
+> - Note that the Query_Img not belongs to the classes we trained our network on.
+> - k-way means k classes, n-shot means number of samples for every class, The prediction will be more effecient If **k** is small and **n** is large.
+1. The model will output a similarity_score or a distance_value based on the method of learning.
 
 ## Contacts
 > You can reach out for me in twitter [@amshrbo](twitter.com/amshrbo) or via mail `amshrbo@gmail.com`
