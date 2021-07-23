@@ -97,7 +97,7 @@
     - If the above equation is true so the loss will **be zero.**      
     - **If not:**  <img src="./assets/tirplet_loss_ifnot.jpg">
     - So our final Loss_function will be <img src="./assets/final_tripletLoss.jpg">
-- Then we will use gradient descent to and back-propagate the results to update our parameters.
+- Then we will use gradient descent and back-propagate the results to update our parameters.
 
 
 ## Contacts
